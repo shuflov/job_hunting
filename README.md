@@ -1,47 +1,38 @@
-# 📚 Terminal Library Manager
+# 💼 Terminal Job Hunting Manager
 
-A fun, lightweight terminal-based UI for managing your personal book collection! Built with Python and Textual, this app brings the joy of keyboard-driven interfaces to book lovers who spend most of their time in the terminal.
+A lightweight, keyboard-driven terminal app for tracking your job applications! Built with Python and Textual, this app helps you stay organized during your job search without leaving the terminal.
 
 ## 🎯 About This Project
 
-This is a **just-for-fun** project for anyone who:
-- Lives in the terminal (WSL, Windows Terminal, or any Linux terminal)
-- Loves keyboard-driven interfaces (no mouse needed!)
-- Wants a simple way to track their reading list
-- Appreciates clean, minimal TUI (Text User Interface) apps
-
-Think of it as a lightweight alternative to Goodreads or LibraryThing, but entirely in your terminal with zero distractions!
+Track all your job applications in one place with a clean, distraction-free terminal interface. Perfect for:
+- Developers who live in the terminal
+- Anyone tired of spreadsheets for job tracking
+- People who want a quick, local solution (no cloud, no signups)
+- Terminal enthusiasts who appreciate keyboard-driven workflows
 
 ## ✨ Features
 
-- 📖 **View your entire library** in a clean, sortable table
-- 🔍 **Search** books by title, author, or genre (real-time filtering)
-- 📑 **Sort** by title, author, year, or newest first (ID)
-- ➕ **Add books** via a modal dialog (Tab through fields, hit Enter)
-- 🗑️ **Delete books** with confirmation dialog (safety first!)
-- 📊 **Track reading status** - toggle between "read" and "unread"
-- 🎨 **5 beautiful themes** (dark, light, nord, gruvbox, catppuccin) - saved automatically!
-- ⌨️ **100% keyboard-driven** - optimized for speed and efficiency
-- 💾 **SQLite database** - all your data persists between sessions
-- 🔄 **Quick reset** - refresh to clear search and return to default view
-- 🎮 **Command palette** (Ctrl+P) - discover all commands
+- 💼 **Track job applications** with company, position, location, and salary
+- 📊 **Smart status tracking** - cycle through: open → interview → offer → closed
+- 🔍 **Search** by company, position, or location
+- 📑 **Sort** by company, position, or salary
+- ➕ **Quick add** via modal dialog (Tab through fields)
+- 🗑️ **Safe delete** with confirmation
+- 🎨 **5 themes** (auto-saved between sessions)
+- ⌨️ **100% keyboard-driven** - no mouse needed
+- 💾 **SQLite database** - portable, no setup required
+- 🚀 **Lightweight** - just Python + one dependency
 
 ## 🚀 Quick Start
 
 ### Prerequisites
 
-- **Python 3.7+** (most systems have this already)
-- That's it! Just one dependency to install.
+- **Python 3.7+**
+- That's it!
 
 ### Installation
 
-#### On WSL/Linux:
-
 ```bash
-# Install Python if needed
-sudo apt update
-sudo apt install python3 python3-pip
-
 # Install Textual
 pip3 install textual
 
@@ -49,152 +40,151 @@ pip3 install textual
 pip3 install -r requirements.txt
 ```
 
-#### On Windows (PowerShell/CMD):
-
-```powershell
-# Install Textual
-pip install textual
-
-# Or use requirements.txt
-pip install -r requirements.txt
-```
-
 ### Running the App
 
 ```bash
-python3 library_app.py
-```
-
-Or on Windows:
-```powershell
-python library_app.py
+python3 job_hunting_app.py
 ```
 
 ### Adding Sample Data (Optional)
 
-To start with some books already loaded:
-
-**Option 1: Using Python script**
 ```bash
-python3 add_sample_data.py
-```
+# Python script
+python3 add_sample_jobs.py
 
-**Option 2: Using SQL file**
-```bash
-sqlite3 library.db < add_books.sql
+# Or SQL file
+sqlite3 job_hunting.db < add_jobs.sql
 ```
 
 ## ⌨️ Keyboard Shortcuts
 
 | Key | Action | Description |
 |-----|--------|-------------|
-| `a` | Add Book | Opens dialog to add a new book |
-| `d` | Delete Book | Deletes selected book (with confirmation) |
-| `s` | Toggle Status | Switch between "read" and "unread" |
-| `r` | Refresh | Reset to default view (clear search, sort by newest) |
-| `t` | Toggle Theme | Cycle through 5 beautiful themes |
-| `1` | Sort by Title | Alphabetical by book title |
-| `2` | Sort by Author | Alphabetical by author name |
-| `3` | Sort by Year | Sort by publication year |
-| `/` | Search | Focus the search box |
-| `↑↓` | Navigate | Move through your book list |
-| `Tab` | Next Field | Move between input fields |
-| `Ctrl+P` | Command Palette | Search all available commands |
-| `q` | Quit | Exit the app |
+| `a` | Add Job | Add a new job application |
+| `d` | Delete | Delete selected job (with confirmation) |
+| `s` | Toggle Status | Cycle: open → interview → offer → closed |
+| `r` | Refresh | Reset view (clear search, sort by newest) |
+| `t` | Toggle Theme | Switch between 5 themes |
+| `1` | Sort by Company | Alphabetical by company |
+| `2` | Sort by Position | Alphabetical by position |
+| `3` | Sort by Salary | Sort by salary range |
+| `/` | Search | Focus search box |
+| `↑↓` | Navigate | Move through applications |
+| `Tab` | Next Field | Move between form fields |
+| `Ctrl+P` | Command Palette | Search all commands |
+| `q` | Quit | Exit app |
+
+## 📊 Status Workflow
+
+Press `s` to cycle through statuses:
+
+1. **open** (yellow) - Just applied
+2. **interview** (blue) - Interview scheduled/in progress
+3. **offer** (green) - Received an offer
+4. **closed** (red) - Rejected or declined
 
 ## 🎨 Themes
 
 Press `t` to cycle through:
-1. **textual-dark** - Classic dark theme (default)
-2. **textual-light** - Clean light theme for daytime
-3. **nord** - Cool, calming blues
-4. **gruvbox** - Warm, retro vibes
-5. **catppuccin-mocha** - Soft pastel dark
+1. **textual-dark** - Default dark theme
+2. **textual-light** - Clean light theme
+3. **nord** - Cool blues
+4. **gruvbox** - Warm retro
+5. **catppuccin-mocha** - Soft pastels
 
-Your theme choice is **automatically saved** and restored next time you open the app!
+Your theme preference is saved automatically!
 
-## 📖 How to Use
+## 📖 Usage Guide
 
-### Adding Books
+### Adding a Job Application
 
-1. Press **`a`** - A dialog pops up
-2. Fill in the fields:
-   - **Title** (required) → Tab
-   - **Author** (required) → Tab
-   - **Year** (optional) → Tab
-   - **Genre** (optional) → Enter
-3. Book added! ✅
+1. Press **`a`**
+2. Fill in:
+   - **Company** (required) → Tab
+   - **Position** (required) → Tab
+   - **Location** (optional) → Tab
+   - **Salary** (optional, e.g., "$80k-100k") → Enter
+3. Done! ✅
 
-### Searching
+### Tracking Progress
 
-1. Press **`/`** or click in the search box
-2. Type any text (searches title, author, genre)
-3. Press **Enter** to filter
-4. Press **`r`** to clear search and return to all books
+- Select a job with ↑↓
+- Press `s` to update status as you progress
+- Status colors help you see at a glance:
+  - 🟡 Open applications
+  - 🔵 Active interviews
+  - 🟢 Offers received
+  - 🔴 Closed/rejected
 
-### Managing Books
+### Searching & Organizing
 
-- **Navigate:** Use ↑↓ arrow keys
-- **Change status:** Select a book, press `s` (toggles read/unread)
-- **Delete:** Select a book, press `d`, confirm with arrows/Enter
-
-### Sorting
-
-- Press `1` for Title (A-Z)
-- Press `2` for Author (A-Z)
-- Press `3` for Year (oldest to newest)
-- Default is newest books first (ID descending)
+- Press `/` to search by company, position, or location
+- Press `1`, `2`, `3` to sort
+- Press `r` to reset and view all (newest first)
 
 ## 💾 Data Storage
 
-The app creates two files in the same directory:
+Creates two files in the app directory:
 
-1. **`library.db`** - SQLite database with all your books
-2. **`.library_config.json`** - Stores your preferences (theme)
+1. **`job_hunting.db`** - SQLite database with all your applications
+2. **`.job_hunting_config.json`** - Theme preference
 
-Your data persists between sessions - close and reopen anytime!
+Both files are portable - copy them anywhere!
 
 ## 🛠️ Technical Details
 
 - **Language:** Python 3
-- **UI Framework:** [Textual](https://github.com/Textualize/textual) (modern TUI framework)
+- **UI:** Textual (modern TUI framework)
 - **Database:** SQLite3 (built into Python)
-- **No external dependencies** except Textual
+- **Dependencies:** Just textual
 
-## 🎯 Why This Project?
-
-Because sometimes you just want to:
-- Track your books without opening a browser
-- Stay in your terminal workflow
-- Have a lightweight, distraction-free reading list
-- Build something fun with cool TUI tech!
-
-This app is inspired by tools like `tview` (Go), `ncurses`, and the philosophy that not everything needs to be a web app or Electron monstrosity. Sometimes, the terminal is all you need. 🖥️✨
-
-## 📝 Database Schema
+### Database Schema
 
 ```sql
-CREATE TABLE books (
+CREATE TABLE jobs (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
-    title TEXT NOT NULL,
-    author TEXT NOT NULL,
-    year INTEGER,
-    genre TEXT,
-    status TEXT DEFAULT 'unread',
+    company TEXT NOT NULL,
+    position TEXT NOT NULL,
+    location TEXT,
+    salary TEXT,
+    status TEXT DEFAULT 'open',
     added_date TEXT DEFAULT CURRENT_TIMESTAMP
 );
 ```
 
-## 🤝 Contributing
+## 🎯 Why This App?
 
-This is a fun hobby project! Feel free to fork it, modify it, or use it as inspiration for your own terminal apps.
+Job hunting can be overwhelming. Spreadsheets are clunky. Web apps are distracting. Sometimes you just want a simple, focused tool that:
+- Starts instantly
+- Works offline
+- Respects your privacy (all data local)
+- Fits your terminal workflow
+- Gets out of your way
 
-## 📄 License
+## 📝 Tips
 
-Do whatever you want with this code - it's a fun learning project! 🎉
+- **Stay organized:** Update statuses as soon as things change
+- **Track everything:** Even rejections are useful data
+- **Use search:** Quickly find that company you interviewed with last week
+- **Backup your data:** Just copy `job_hunting.db` - it's that simple!
+
+## 🔒 Privacy
+
+Everything is stored locally. No cloud, no tracking, no accounts. Your job search data belongs to you.
+
+## 🤝 .gitignore Recommendations
+
+```
+job_hunting.db
+.job_hunting_config.json
+__pycache__/
+*.pyc
+```
+
+Keep your personal applications private while sharing the code!
 
 ---
 
-**Happy reading! 📚**
+**Good luck with your job hunt! 💼**
 
-Built with ❤️ and ☕ for terminal enthusiasts everywhere.
+Built with ❤️ for terminal enthusiasts and job seekers everywhere.
