@@ -288,7 +288,7 @@ class ConfirmDeleteDialog(ModalScreen[bool]):
     #confirm-dialog {
         width: 50;
         height: auto;
-        border: thick $error;
+        border: $error;
         background: $surface;
         padding: 1 2;
     }
